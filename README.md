@@ -1,4 +1,4 @@
-TWRP Device tree for the Samsung Galaxy SDM439 (android 10 , 11 and android 12)
+Common TWRP Device tree for the Samsung Galaxy SDM439 (android 10 , 11 and android 12)
 =================================================
 
 | Basic                   | Spec Sheet                                                                                                                     |
@@ -50,14 +50,18 @@ TWRP Device tree for the Samsung Galaxy SDM439 (android 10 , 11 and android 12)
 # Init repo
 $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 
-# Clone m01q repo
-$ git clone https://github.com/SamsungSDM439/twrp_samsung_device_439 device/samsung/m01q
-
 # Sync
 $ repo sync --no-repo-verify -c --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j`nproc`
 
+# Clone tree
+$ git clone https://github.com/smiley9000/twrp_device_samsung_sdm439 device/samsung/sdm439_commoon
+$ git clone https://github.com/smiley9000/twrp_recovery_device_samsung_a01q device/samsung/a01q
+$ git clone https://github.com/smiley9000/twrp_device_samsung_m01q device/samsung/m0q
+
+
+
 # Build
-$ source build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_m01q-eng; mka recoveryimage
+$ source build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_(code_name)-eng; mka recoveryimage
 
 
 # Remove Samsung Securities after installing TWRP.
