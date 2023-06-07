@@ -1,0 +1,25 @@
+#!/system/bin/sh
+#
+# A simple script for encrypt samsung sdm439.
+#
+# Use this to prime your device after installing TWRP.
+
+echo " - Encrypting..."
+twrp install system/cust/Encrypt.zip
+mount /vendor
+mount /keyrefuge
+mount /keydata 
+echo " - Delete Encypted Keys..."
+rm -r keydata 
+rm -r keyrefuge
+umount /vendor
+umount /keyrefuge
+umount /keydata
+twrp wipe cache
+twrp wipe dalvik
+twrp format data
+echo " "
+echo " *** NOTE YOU CANNOT USE INTERNAL STORAGE FROM TWRP ***"
+echo " *** AND YOU CANNOT BACKUP AND RESTORE DATA  ***"
+echo " *** Finished. Reboot ***"
+echo " "

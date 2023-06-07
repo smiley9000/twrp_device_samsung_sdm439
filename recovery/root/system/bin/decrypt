@@ -1,0 +1,15 @@
+#!/system/bin/sh
+#
+# A simple script for decrypt samsung sdm439.
+#
+# Use this to prime your device after installing TWRP.
+
+
+echo " - Decrypting..."
+twrp install system/cust/Decrypt.zip
+twrp format data
+echo " "
+echo " *** NOTE YOU CANNOT USE INTERNAL STORAGE FROM TWRP ***"
+echo " *** AND YOU CANNOT BACKUP AND RESTORE DATA  ***"
+echo " *** Finished. Reboot ***"
+echo " "

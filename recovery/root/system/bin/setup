@@ -1,0 +1,7 @@
+#!/system/bin/sh
+#
+# A simple script for disable samsung securities.
+#
+# Use this to prime your device after installing TWRP.
+
+twrp install system/cust/startup.zip
